@@ -1,0 +1,240 @@
+{
+  "10": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 1.2000000000000002,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "16",
+        0
+      ],
+      "positive": [
+        "221",
+        0
+      ],
+      "negative": [
+        "211",
+        0
+      ],
+      "latent_image": [
+        "221",
+        2
+      ],
+      "optional_vae": [
+        "208",
+        2
+      ],
+      "script": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "upscale_type": "latent",
+      "hires_ckpt_name": "(use same)",
+      "latent_upscaler": "nearest-exact",
+      "pixel_upscaler": "ESRGAN\\1x-AnimeUndeint-Compact.pth",
+      "upscale_by": 1.5,
+      "use_same_seed": true,
+      "seed": -1,
+      "hires_steps": 8,
+      "denoise": 0.6,
+      "iterations": 1,
+      "use_controlnet": false,
+      "control_net_name": "Control nets\\DensePose.safetensors",
+      "strength": 1,
+      "preprocessor": "CannyEdgePreprocessor",
+      "preprocessor_imgs": false
+    },
+    "class_type": "HighRes-Fix Script",
+    "_meta": {
+      "title": "HighRes-Fix Script"
+    }
+  },
+  "16": {
+    "inputs": {
+      "model_name": "sd15_t2v_beta.ckpt",
+      "beta_schedule": "lcm >> sqrt_linear",
+      "motion_scale": 1.1,
+      "apply_v2_models_properly": false,
+      "model": [
+        "208",
+        0
+      ],
+      "context_options": [
+        "17",
+        0
+      ],
+      "sample_settings": [
+        "224",
+        0
+      ]
+    },
+    "class_type": "ADE_AnimateDiffLoaderWithContext",
+    "_meta": {
+      "title": "AnimateDiff Loader [Legacy] 🎭🅐🅓①"
+    }
+  },
+  "17": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 4,
+      "closed_loop": true,
+      "fuse_method": "pyramid",
+      "use_on_equal_length": false,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_LoopedUniformContextOptions",
+    "_meta": {
+      "title": "Context Options◆Looped Uniform 🎭🅐🅓"
+    }
+  },
+  "198": {
+    "inputs": {
+      "frame_rate": 16,
+      "loop_count": 0,
+      "filename_prefix": "txt2vid",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 20,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "207",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "205": {
+    "inputs": {
+      "upscale_model": [
+        "206",
+        0
+      ],
+      "image": [
+        "10",
+        5
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "206": {
+    "inputs": {
+      "model_name": "RealESRGAN_x2plus.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "207": {
+    "inputs": {
+      "ckpt_name": "rife47.pth",
+      "clear_cache_after_n_frames": 10,
+      "multiplier": 2,
+      "fast_mode": true,
+      "ensemble": true,
+      "scale_factor": 1,
+      "frames": [
+        "205",
+        0
+      ]
+    },
+    "class_type": "RIFE VFI",
+    "_meta": {
+      "title": "RIFE VFI (recommend rife47 and rife49)"
+    }
+  },
+  "208": {
+    "inputs": {
+      "ckpt_name": "photonLCM_v10.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "210": {
+    "inputs": {
+      "width": 576,
+      "height": 320,
+      "batch_size": 48
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "211": {
+    "inputs": {
+      "text": "shutterstock watermark, nude, naked, text, blurry, jpeg artifacts, low-resolution, ugly, embedding:BadDream.pt",
+      "clip": [
+        "208",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "221": {
+    "inputs": {
+      "text": "\"0\" :\"a old shamanic woman, feathers, facepaint, jungle\",\n\"32\" :\"a mysterious orb floating in the forest, hovering above the ground, mysterious twisting patterns emerging from its heart\"\n",
+      "print_output": true,
+      "pre_text": "",
+      "app_text": "",
+      "start_frame": 0,
+      "pw_a": 0,
+      "pw_b": 0,
+      "pw_c": 0,
+      "pw_d": 0,
+      "clip": [
+        "208",
+        1
+      ],
+      "num_latents": [
+        "210",
+        0
+      ]
+    },
+    "class_type": "BatchPromptScheduleLatentInput",
+    "_meta": {
+      "title": "Batch Prompt Schedule (Latent Input) 📅🅕🅝"
+    }
+  },
+  "224": {
+    "inputs": {
+      "batch_offset": 0,
+      "noise_type": "FreeNoise",
+      "seed_gen": "comfy",
+      "seed_offset": 0,
+      "adapt_denoise_steps": false
+    },
+    "class_type": "ADE_AnimateDiffSamplingSettings",
+    "_meta": {
+      "title": "Sample Settings 🎭🅐🅓"
+    }
+  }
+}

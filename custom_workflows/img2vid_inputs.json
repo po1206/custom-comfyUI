@@ -1,0 +1,9 @@
+{
+  "width": {"node_id": "444", "field": "inputs", "subfield": "width"},
+  "height": {"node_id": "444", "field": "inputs", "subfield": "height"},
+  "n_frames": {"node_id": "441", "field": "inputs", "subfield": "value"},
+  "input_image_path1": {"node_id": "440", "field": "inputs", "subfield": "image"},
+  "seed": {"node_id": "136", "field": "inputs", "subfield": "seed"},
+  "loop": {"node_id": "17", "field": "inputs", "subfield": "closed_loop"},
+  "motion_scale": {"node_id": "16", "field": "inputs", "subfield": "motion_scale"}
+}

@@ -1,0 +1,414 @@
+{
+  "10": {
+    "inputs": {
+      "seed": [
+        "136",
+        0
+      ],
+      "steps": 6,
+      "cfg": 1.2000000000000002,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 0.85,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "224",
+        0
+      ],
+      "positive": [
+        "327",
+        0
+      ],
+      "negative": [
+        "327",
+        1
+      ],
+      "latent_image": [
+        "13",
+        3
+      ],
+      "optional_vae": [
+        "13",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "ckpt_name": "photonLCM_v10.safetensors",
+      "vae_name": "Baked VAE",
+      "clip_skip": -1,
+      "lora_name": "None",
+      "lora_model_strength": -2.2600000000000002,
+      "lora_clip_strength": 0.14,
+      "positive": [
+        "459",
+        0
+      ],
+      "negative": "shutterstock, watermark, text, blurry, low-resolution, bad quality, ugly, embedding:BadDream.pt",
+      "token_normalization": "none",
+      "weight_interpretation": "comfy",
+      "empty_latent_width": [
+        "444",
+        1
+      ],
+      "empty_latent_height": [
+        "444",
+        2
+      ],
+      "batch_size": [
+        "441",
+        0
+      ]
+    },
+    "class_type": "Efficient Loader",
+    "_meta": {
+      "title": "Efficient Loader"
+    }
+  },
+  "16": {
+    "inputs": {
+      "model_name": "sd15_t2v_beta.ckpt",
+      "beta_schedule": "lcm >> sqrt_linear",
+      "motion_scale": 1.1,
+      "apply_v2_models_properly": false,
+      "model": [
+        "13",
+        0
+      ],
+      "context_options": [
+        "17",
+        0
+      ],
+      "sample_settings": [
+        "213",
+        0
+      ]
+    },
+    "class_type": "ADE_AnimateDiffLoaderWithContext",
+    "_meta": {
+      "title": "AnimateDiff Loader [Legacy] 🎭🅐🅓①"
+    }
+  },
+  "17": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 4,
+      "closed_loop": true,
+      "fuse_method": "pyramid",
+      "use_on_equal_length": false,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_LoopedUniformContextOptions",
+    "_meta": {
+      "title": "Context Options◆Looped Uniform 🎭🅐🅓"
+    }
+  },
+  "49": {
+    "inputs": {
+      "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "50": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter-plus_sd15.safetensors"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "Load IPAdapter Model"
+    }
+  },
+  "136": {
+    "inputs": {
+      "seed": 248
+    },
+    "class_type": "Seed Everywhere",
+    "_meta": {
+      "title": "Seed Everywhere"
+    }
+  },
+  "213": {
+    "inputs": {
+      "batch_offset": 0,
+      "noise_type": "FreeNoise",
+      "seed_gen": "comfy",
+      "seed_offset": 0,
+      "adapt_denoise_steps": false
+    },
+    "class_type": "ADE_AnimateDiffSamplingSettings",
+    "_meta": {
+      "title": "Sample Settings 🎭🅐🅓"
+    }
+  },
+  "224": {
+    "inputs": {
+      "weight": 1.25,
+      "noise": 0,
+      "weight_type": "channel penalty",
+      "start_at": 0,
+      "end_at": 0.8,
+      "unfold_batch": false,
+      "ipadapter": [
+        "50",
+        0
+      ],
+      "clip_vision": [
+        "49",
+        0
+      ],
+      "image": [
+        "444",
+        0
+      ],
+      "model": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "237": {
+    "inputs": {
+      "interpolation": "LANCZOS",
+      "crop_position": "center",
+      "sharpening": 0.05
+    },
+    "class_type": "PrepImageForClipVision",
+    "_meta": {
+      "title": "Prepare Image For Clip Vision"
+    }
+  },
+  "327": {
+    "inputs": {
+      "strength": 0.7000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.8,
+      "positive": [
+        "13",
+        1
+      ],
+      "negative": [
+        "13",
+        2
+      ],
+      "control_net": [
+        "328",
+        0
+      ],
+      "image": [
+        "444",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet (Advanced)"
+    }
+  },
+  "328": {
+    "inputs": {
+      "control_net_name": "adiff_ControlGIF_controlnet.ckpt"
+    },
+    "class_type": "ControlNetLoaderAdvanced",
+    "_meta": {
+      "title": "Load Advanced ControlNet Model 🛂🅐🅒🅝"
+    }
+  },
+  "334": {
+    "inputs": {
+      "seed": [
+        "136",
+        0
+      ],
+      "steps": 8,
+      "cfg": 1.2000000000000002,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 0.55,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "10",
+        0
+      ],
+      "positive": [
+        "10",
+        1
+      ],
+      "negative": [
+        "10",
+        2
+      ],
+      "latent_image": [
+        "335",
+        0
+      ],
+      "optional_vae": [
+        "10",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "335": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.5,
+      "samples": [
+        "10",
+        3
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "Upscale Latent By"
+    }
+  },
+  "353": {
+    "inputs": {
+      "model_name": "RealESRGAN_x2plus.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "354": {
+    "inputs": {
+      "upscale_model": [
+        "353",
+        0
+      ],
+      "image": [
+        "334",
+        5
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "355": {
+    "inputs": {
+      "ckpt_name": "rife47.pth",
+      "clear_cache_after_n_frames": 10,
+      "multiplier": 2,
+      "fast_mode": true,
+      "ensemble": true,
+      "scale_factor": 1,
+      "frames": [
+        "354",
+        0
+      ]
+    },
+    "class_type": "RIFE VFI",
+    "_meta": {
+      "title": "RIFE VFI (recommend rife47 and rife49)"
+    }
+  },
+  "440": {
+    "inputs": {
+      "image": "Eden-xander-A giant Kim Jong Un riding on an inter ballistic missile_ destroying the planet-65f3f26307ab875b0ddc9d02 (1).jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "441": {
+    "inputs": {
+      "value": 48
+    },
+    "class_type": "SeargeIntegerConstant",
+    "_meta": {
+      "title": "Integer Constant"
+    }
+  },
+  "444": {
+    "inputs": {
+      "width": 576,
+      "height": 576,
+      "interpolation": "nearest",
+      "keep_proportion": true,
+      "condition": "always",
+      "image": [
+        "440",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "458": {
+    "inputs": {
+      "mode": "fast",
+      "keep_model_alive": true,
+      "prepend_blip_caption": true,
+      "save_prompt_to_txt_file": "clip_interrogator_prompt.txt",
+      "image": [
+        "444",
+        0
+      ]
+    },
+    "class_type": "CLIP_Interrogator",
+    "_meta": {
+      "title": "CLIP_Interrogator"
+    }
+  },
+  "459": {
+    "inputs": {
+      "prompt1": [
+        "458",
+        0
+      ],
+      "separator": ", ",
+      "prompt2": "stunning composition, 4k, sharp details, I can't believe how beautiful this is!!"
+    },
+    "class_type": "SeargePromptCombiner",
+    "_meta": {
+      "title": "Prompt combiner"
+    }
+  },
+  "466": {
+    "inputs": {
+      "frame_rate": 20,
+      "loop_count": 0,
+      "filename_prefix": "img2vid",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 16,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "355",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  }
+}
